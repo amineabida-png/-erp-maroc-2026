@@ -1,7 +1,7 @@
 import { Controller, Get, UseInterceptors, Req } from '@nestjs/common';
-import { AccountingJournalService } from '../journal/journal.service';
-import { ChartOfAccountsService } from '../chart/chart.service';
-import { TenantInterceptor } from '../../common/interceptors/tenant.interceptor';
+import { AccountingJournalService } from './journal/journal.service';
+import { ChartOfAccountsService } from './chart/chart.service';
+import { TenantInterceptor } from '../common/interceptors/tenant.interceptor';
 
 @Controller('accounting')
 @UseInterceptors(TenantInterceptor)
