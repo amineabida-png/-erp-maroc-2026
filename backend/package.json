@@ -4,6 +4,7 @@
   "description": "Backend ERP SaaS Maroc 2026",
   "main": "dist/main.js",
   "scripts": {
+    "start": "node src/main.js",
     "test": "jest"
   },
   "dependencies": {
