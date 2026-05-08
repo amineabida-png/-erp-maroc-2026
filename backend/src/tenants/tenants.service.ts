@@ -5,6 +5,7 @@ export interface Tenant {
   name: string;
   ice: string;
   taxId: string;
+  address?: string;
 }
 
 @Injectable()

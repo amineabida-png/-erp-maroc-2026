@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ProductsService } from '../products/products.service';
-import { FiscalEngine } from '../../../shared/fiscal-engine';
+import { FiscalEngine } from '../../shared/fiscal-engine';
 
 export interface InvoiceItem {
   productId: string;
