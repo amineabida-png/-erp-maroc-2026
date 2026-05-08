@@ -1,20 +1,10 @@
-# Build Stage
-FROM node:20-alpine AS builder
+FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-# Vérification de l'existence du dossier dist
-RUN ls -la dist/
-
-# Production Stage
-FROM node:20-alpine
-WORKDIR /app
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/dist ./dist
-# Vérification de la copie
-RUN ls -la dist/
-COPY --from=builder /app/node_modules ./node_modules
+RUN ls -la
+RUN ls -la dist/ || echo "dist folder not found"
 EXPOSE 3000
 CMD ["node", "dist/main.js"]
