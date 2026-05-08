@@ -3,6 +3,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
-# On liste tout le contenu de /app pour voir où sont les fichiers
-CMD ["ls", "-R", "/app"]
+# Débogage : Afficher la version de tsc et tenter de compiler avec des détails
+RUN ./node_modules/.bin/tsc --version
+RUN ./node_modules/.bin/tsc -p . --listEmittedFiles --extendedDiagnostics
+RUN ls -R /app
+EXPOSE 3000
+CMD ["node", "dist/main.js"]
