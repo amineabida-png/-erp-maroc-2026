@@ -4,8 +4,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-# Débogage : Lister les fichiers pour s'assurer que tsconfig.json est là
-RUN ls -la
 RUN npm run build
 RUN npm prune --production
 
