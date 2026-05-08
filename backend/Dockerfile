@@ -3,7 +3,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build || (ls -R /app && exit 1)
-RUN ls -R /app
-EXPOSE 3000
-CMD ["node", "dist/main.js"]
+RUN npm run build
+# On liste tout le contenu de /app pour voir où sont les fichiers
+CMD ["ls", "-R", "/app"]
